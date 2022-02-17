@@ -4,6 +4,7 @@ module.exports = {
     "./resources/views/welcome.blade.php",
     "./resources/views/auth/login.blade.php",
     "./resources/views/auth/register.blade.php",
+    "./resources/views/home.blade.php",
   ],
   theme: {
     extend: {},
