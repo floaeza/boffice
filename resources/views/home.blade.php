@@ -32,4 +32,5 @@
       {{ $devices->links() }}
     </div>
   </div>
+  
 @endsection
