@@ -22,8 +22,8 @@
             <td class="px-6 py-4 border-b border-grey-light">{{ $device->make }}</td>
             <td class="px-6 py-4 border-b border-grey-light">{{ $device->model }}</td>
             <td class="px-6 py-4 border-b border-grey-light">
-              <a href="#" class="px-3 py-1 text-xs font-bold bg-green-400 rounded text-grey-lighter hover:bg-green-700">Reiniciar</a>
-              <a href="#" class="px-3 py-1 text-xs font-bold bg-red-500 rounded text-grey-lighter hover:bg-red-700">Logread</a>
+              <a id="reboot_Device"  name={{ $device->mac_address }} class="px-3 py-1 text-xs font-bold bg-green-400 rounded cursor-pointer text-grey-lighter hover:bg-green-700">Reiniciar</a>
+              <a id="logread_Device" name ={{ $device->mac_address }} class="px-3 py-1 text-xs font-bold bg-red-500 rounded cursor-pointer text-grey-lighter hover:bg-red-700">Logread</a>
             </td>
           </tr>
           @endforeach
@@ -32,5 +32,5 @@
       {{ $devices->links() }}
     </div>
   </div>
-  
+<script src="{{asset('js/Devices.js')}}"></script>
 @endsection
