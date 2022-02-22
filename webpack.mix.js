@@ -17,3 +17,6 @@ mix.js('resources/js/app.js', 'public/js')
         //
         require("tailwindcss"),
     ]);
+
+mix.copy('node_modules/xterm/lib/xterm.js', 'public/js');
+mix.copy('node_modules/xterm/css/xterm.css', 'public/css');

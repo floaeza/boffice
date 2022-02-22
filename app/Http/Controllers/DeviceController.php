@@ -37,4 +37,18 @@ class DeviceController extends Controller
         $output_data = $process->getOutput();
         return response()->json([$output_data], 200);
     }
+    public function terminalDevice(Request $request){
+        $path = public_path();
+        $path = $path.'/python/TerminalDevice.py';
+        $device = Device::where('mac_address', $request->mac)->first();
+        $arg = $device->ip_direction.','.$device->make.','.$request->command;
+        $process = new Process(['python', $path, $arg]);
+        $process->run();
+        // error handling
+        if (!$process->isSuccessful()) {
+            throw new ProcessFailedException($process);
+        }
+        $output_data = $process->getOutput();
+        return response()->json([$output_data], 200);
+    }
 }
