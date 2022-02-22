@@ -60,6 +60,7 @@ function logreadDevice(mac) {
 
 
 function logreadDevice(mac) {
+    let response = getLog(mac, 'logread');
     var PROGAMS = {
         help: function(...a) {
           this.printa({
@@ -70,9 +71,8 @@ function logreadDevice(mac) {
         clear: function(...a) {
           this.clear_terminal();
         },
-        logread:function(...a) {
-            let response = getLog(mac, 'logread');
-            this.printa(response);
+        logread:function(...a) {   
+            self.printa(response[0]);            
           },
       };
     $("#terminal" ).setAsTerminal("#terminal","[root","AMINET","]","#", PROGAMS);
@@ -130,4 +130,8 @@ function getLog(mac, command){
     }  
     });
     return log;
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
