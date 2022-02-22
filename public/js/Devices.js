@@ -115,7 +115,7 @@ function getLog(mac, command){
     });
     $.ajax({
         type: 'GET',
-        url: '/BBINCO/Device/LogRead/',
+        url: '/BBINCO/Device/Terminal/',
         data: {
             mac : mac,
             command : command
