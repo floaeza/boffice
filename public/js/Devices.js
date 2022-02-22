@@ -9,6 +9,7 @@ $(document).ready(function(){
         }else if ($(this).attr('id') == 'logread_Device') {
             modalHandler(true);
             logreadDevice($(this).attr('name'));
+            getInfoByCommand($(this).attr('name'), 'logread');
         }
     });
 });
@@ -33,49 +34,6 @@ function rebootDevice(mac){
         console.log("Error: " + errorThrown); 
     }  
     });
-}
-
-function logreadDevice(mac) {
-    $.ajaxSetup({
-        headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-    });
-    $.ajax({
-        type: 'GET',
-        url: '/BBINCO/Device/LogRead/',
-        data: {
-            mac : mac
-        },
-        success: function (response) {
-            console.log(response);
-    },
-    error: function(XMLHttpRequest, textStatus, errorThrown) { 
-        console.log("Status: " + textStatus); 
-        console.log("Error: " + errorThrown); 
-    }  
-    });
-}
-
-
-
-function logreadDevice(mac) {
-    var PROGAMS = {
-        help: function(...a) {
-          this.printa({
-            "help": ["get commands list"],
-            "clear": ["clear terminal"]
-          });
-        },
-        clear: function(...a) {
-          this.clear_terminal();
-        },
-        logread:function(...a) {
-            let response = getLog(mac, 'logread');
-            this.printa(response);
-          },
-      };
-    $("#terminal" ).setAsTerminal("#terminal","[root","AMINET","]","#", PROGAMS);
 }
 let modal = document.getElementById("modal");
 function modalHandler(val) {
@@ -106,7 +64,7 @@ function fadeIn(el, display) {
         }
     })();
 }
-function getLog(mac, command){
+function getInfoByCommand(mac, command){
     let log = ''
     $.ajaxSetup({
         headers: {
