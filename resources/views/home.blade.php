@@ -25,8 +25,8 @@
             <td class="px-6 py-4 border-b border-grey-light">{{ $device->make }}</td>
             <td class="px-6 py-4 border-b border-grey-light">{{ $device->model }}</td>
             <td class="px-6 py-4 border-b border-grey-light">
-              <a id="reboot_Device"  name={{ $device->mac_address }} class="px-3 py-1 text-xs font-bold bg-green-400 rounded cursor-pointer text-grey-lighter hover:bg-green-700">Reiniciar</a>
-              <a id="logread_Device" name ={{ $device->mac_address }} class="px-3 py-1 text-xs font-bold bg-red-500 rounded cursor-pointer text-grey-lighter hover:bg-red-700">Logread</a>
+              <a id="reboot_Device"  name ={{ $device->mac_address }} class="px-3 py-1 text-xs font-bold bg-green-400 rounded cursor-pointer text-grey-lighter hover:bg-green-700">Reiniciar</a>
+              <a id="logread_Device" name ={{ $device->mac_address }} class="px-3 py-1 text-xs font-bold bg-red-500 rounded cursor-pointer text-grey-lighter hover:bg-red-700">Commands</a>
             </td>
           </tr>
           @endforeach
@@ -42,11 +42,7 @@
   <div class="absolute top-0 bottom-0 left-0 right-0 z-10 py-12 transition duration-150 ease-in-out bg-gray-700" id="modal">
       <div role="alert" class="container w-11/12 max-w-lg mx-auto md:w-2/3">
           <div class="relative px-5 py-8 bg-white border border-gray-400 rounded shadow-md md:px-10">
-            <div id="terminal">
-              <header>>>>Welcome in terminal, type "help" to get commands</header>
-              <div id="terminal_lines">
-              </div>
-            </div>
+            
       </div>
   </div>
   {{-- <div class="flex justify-center w-full py-12" id="button">

@@ -15,14 +15,15 @@ parametro = parametro.strip()
 
 parametro = parametro.split(',')
 
-if parametro[1] == 'AMINO':
-    if parametro[2] == 'logread':       
-        try:
-            ip = parametro[0]
-            t.connect(ip, username='root', password='root2root', p=23, timeout=8)
-            output= t.execute('logread')
-            t.close()
-            print(output)
-        except:
-            print('DISPOSITIVO NO ALCANZADO')
+if parametro[1] == 'AMINO':           
+    try:
+        ip = parametro[0]
+        t.connect(ip, username='root', password='root2root', p=23, timeout=8)
+        output= t.execute(parametro[2])
+        output=output.replace('"',' ')
+        # output = output.split('\r\n')
+        t.close()
+        print(output)
+    except:
+        print('DISPOSITIVO NO ALCANZADO')
 

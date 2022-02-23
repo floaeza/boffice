@@ -35,6 +35,7 @@ class DeviceController extends Controller
             throw new ProcessFailedException($process);
         }
         $output_data = $process->getOutput();
-        return response()->json([$output_data], 200);
+        $aux = str_replace("'", '', $output_data); 
+        return response()->json([$aux], 200);
     }
 }

@@ -1,6 +1,7 @@
 // @ts-nocheck
 
 $(document).ready(function(){
+    
     modalHandler();
     $('body').on('click', 'a', function(){
     //   alert($(this).attr('name'))
@@ -78,8 +79,9 @@ function getInfoByCommand(mac, command){
             command : command
         },
         success: function (response) {
-            console.log(response);
-            log = JSON.stringify(response);
+            // let aux = response[0].replace( /'/g,"");
+            //     log = aux.split('\r\n');
+            console.log(response[0]);
     },
     error: function(XMLHttpRequest, textStatus, errorThrown) { 
         console.log("Status: " + textStatus); 
