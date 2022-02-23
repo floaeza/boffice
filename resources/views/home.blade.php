@@ -1,54 +1,32 @@
 @extends('layouts.app')
 
 @section('content')
-<script src="{{asset('js/terminal_programs.js')}}"></script>
-<script src="{{asset('js/terminal.js')}}"></script>
-{{-- <link href="{{ asset('css/styles.css') }}" rel="stylesheet"> --}}
 <!-- component -->
-<div class="w-2/3 mx-auto">
-    <div class="my-6 bg-white rounded shadow-md">
-      <table class="w-full text-left border-collapse"> <!--Border collapse doesn't work on this site yet but it's available in newer tailwind versions -->
-        <thead>
-          <tr>
-            <th class="px-6 py-4 text-sm font-bold uppercase border-b bg-grey-lightest text-grey-dark border-grey-light">Mac Adress</th>
-            <th class="px-6 py-4 text-sm font-bold uppercase border-b bg-grey-lightest text-grey-dark border-grey-light">Direccion IP</th>
-            <th class="px-6 py-4 text-sm font-bold uppercase border-b bg-grey-lightest text-grey-dark border-grey-light">Marca</th>
-            <th class="px-6 py-4 text-sm font-bold uppercase border-b bg-grey-lightest text-grey-dark border-grey-light">Modelo</th>
-            <th class="px-6 py-4 text-sm font-bold uppercase border-b bg-grey-lightest text-grey-dark border-grey-light">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach($devices as $device)
-          <tr class="hover:bg-blue-200">
-            <td class="px-6 py-4 border-b border-grey-light">{{ $device->mac_address }}</td>
-            <td class="px-6 py-4 border-b border-grey-light">{{ $device->ip_direction }}</td>
-            <td class="px-6 py-4 border-b border-grey-light">{{ $device->make }}</td>
-            <td class="px-6 py-4 border-b border-grey-light">{{ $device->model }}</td>
-            <td class="px-6 py-4 border-b border-grey-light">
-              <a id="reboot_Device"  name ={{ $device->mac_address }} class="px-3 py-1 text-xs font-bold bg-green-400 rounded cursor-pointer text-grey-lighter hover:bg-green-700">Reiniciar</a>
-              <a id="logread_Device" name ={{ $device->mac_address }} class="px-3 py-1 text-xs font-bold bg-red-500 rounded cursor-pointer text-grey-lighter hover:bg-red-700">Commands</a>
-            </td>
-          </tr>
-          @endforeach
-        </tbody>
-      </table>
-      {{ $devices->links() }}
-    </div>
-  </div>
-  <!-- component -->
-<!-- Code block starts -->
-<dh-component>
-  <!--- more free and premium Tailwind CSS components at https://tailwinduikit.com/ --->
-  <div class="absolute top-0 bottom-0 left-0 right-0 z-10 py-12 transition duration-150 ease-in-out bg-gray-700" id="modal">
-      <div role="alert" class="container w-11/12 max-w-lg mx-auto md:w-2/3">
-          <div class="relative px-5 py-8 bg-white border border-gray-400 rounded shadow-md md:px-10">
-            
-      </div>
-  </div>
-  {{-- <div class="flex justify-center w-full py-12" id="button">
-      <button class="px-4 py-2 mx-auto text-xs text-white transition duration-150 ease-in-out bg-indigo-700 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 hover:bg-indigo-600 sm:px-8 sm:text-sm" onclick="modalHandler(true)">Open Modal</button>
-  </div> --}}
-</dh-component>
-<!-- Code block ends -->
-<script src="{{asset('js/Devices.js')}}"></script>
+<table class="block min-w-full border-collapse md:table">
+  <thead class="block md:table-header-group">
+    <tr class="absolute block border border-grey-500 md:border-none md:table-row -top-full md:top-auto -left-full md:left-auto md:relative ">
+      <th class="block p-2 font-bold text-left text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">Marca Dispositivo</th>
+      <th class="block p-2 font-bold text-left text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">Mac Address</th>
+      <th class="block p-2 font-bold text-left text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">Direccion IP</th>
+      <th class="block p-2 font-bold text-left text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">Modelo</th>
+      <th class="block p-2 font-bold text-left text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">Actions</th>
+    </tr>
+  </thead>
+  <tbody class="block md:table-row-group">
+    @foreach ($devices as $device)
+    <tr class="block bg-gray-300 border border-grey-500 md:border-none md:table-row">
+      <td class="block p-2 text-left md:border md:border-grey-500 md:table-cell"><span class="inline-block w-1/3 font-bold md:hidden">Marca Dispositivo</span>{{ $device->make }}</td>
+      <td class="block p-2 text-left md:border md:border-grey-500 md:table-cell"><span class="inline-block w-1/3 font-bold md:hidden">Mac Address</span>{{ $device->mac_address }}</td>
+      <td class="block p-2 text-left md:border md:border-grey-500 md:table-cell"><span class="inline-block w-1/3 font-bold md:hidden">Direccion IP</span>{{ $device->ip_direction }}</td>
+      <td class="block p-2 text-left md:border md:border-grey-500 md:table-cell"><span class="inline-block w-1/3 font-bold md:hidden">Modelo</span>{{ $device->model }}</td>
+      <td class="block p-2 text-left md:border md:border-grey-500 md:table-cell">
+        <span class="inline-block w-1/3 font-bold md:hidden">Actions</span>
+        <button id ="reboot_Device"  name= {{ $device->mac_address }} class="px-2 py-1 font-bold text-white bg-blue-500 border border-blue-500 rounded hover:bg-blue-700">Edit</button>
+        <button id ="logread_Device" name= {{ $device->mac_address }} class="px-2 py-1 font-bold text-white bg-red-500 border border-red-500 rounded hover:bg-red-700">Delete</button>
+      </td>
+    </tr>	
+    @endforeach
+  </tbody>
+</table>
+{{ $devices->links() }}
 @endsection
