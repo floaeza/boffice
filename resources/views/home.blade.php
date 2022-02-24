@@ -50,7 +50,7 @@
         <input id="commandLine" class="flex items-center w-full h-10 pl-16 text-sm font-normal text-gray-600 border border-gray-300 rounded focus:outline-none focus:border focus:border-indigo-700" placeholder="Example: logread"/>
       </div>
       <div class="relative flex-auto p-6">
-        <p id="commandResponse" class="my-4 text-lg leading-relaxed text-blueGray-500"></p>
+        <p id="commandResponse" class="my-4 text-lg leading-relaxed text-center text-blueGray-500"></p>
       </div>
       <!--footer-->
       <div class="flex items-center justify-end p-6 border-t border-solid rounded-b border-blueGray-200">
