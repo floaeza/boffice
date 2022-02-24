@@ -1,18 +1,29 @@
 // @ts-nocheck
 
 $(document).ready(function(){
-    
-    modalHandler();
-    $('body').on('click', 'a', function(){
+    $('body').on('click', 'button', function(){
     //   alert($(this).attr('name'))
         if ($(this).attr('id') == 'reboot_Device') {
             rebootDevice($(this).attr('name'));
+            //alert($(this).attr('name'));
         }else if ($(this).attr('id') == 'logread_Device') {
-            modalHandler(true);
-            getInfoByCommand($(this).attr('name'), 'logread');
+            toggleModal('modal-id');
+            let commandLine = document.getElementById('commandLine');
+            let macTobeCommand = $(this).attr('name'); 
+            let commandResponse = document.getElementById('commandResponse');
+            commandLine.addEventListener("keyup", function (event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    let command = commandLine.value;
+                    let response = getInfoByCommand(macTobeCommand, command);
+                    commandResponse.innerHTML = response;
+                }
+            });
         }
     });
 });
+
+/*++++++Funciones de retorno para los dispositivos+++++*/
 
 function rebootDevice(mac){
     $.ajaxSetup({
@@ -35,35 +46,7 @@ function rebootDevice(mac){
     }  
     });
 }
-let modal = document.getElementById("modal");
-function modalHandler(val) {
-    if (val) {
-        fadeIn(modal);
-    } else {
-        fadeOut(modal);
-    }
-}
-function fadeOut(el) {
-    el.style.opacity = 1;
-    (function fade() {
-        if ((el.style.opacity -= 0.1) < 0) {
-            el.style.display = "none";
-        } else {
-            requestAnimationFrame(fade);
-        }
-    })();
-}
-function fadeIn(el, display) {
-    el.style.opacity = 0;
-    el.style.display = display || "flex";
-    (function fade() {
-        let val = parseFloat(el.style.opacity);
-        if (!((val += 0.2) > 1)) {
-            el.style.opacity = val;
-            requestAnimationFrame(fade);
-        }
-    })();
-}
+
 function getInfoByCommand(mac, command){
     let log = ''
     $.ajaxSetup({
@@ -82,6 +65,7 @@ function getInfoByCommand(mac, command){
             // let aux = response[0].replace( /'/g,"");
             //     log = aux.split('\r\n');
             console.log(response[0]);
+            log = response[0];
     },
     error: function(XMLHttpRequest, textStatus, errorThrown) { 
         console.log("Status: " + textStatus); 
@@ -91,3 +75,13 @@ function getInfoByCommand(mac, command){
     return log;
 }
 
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+/*++++++Funciones para los paneles de tipo Modal+++++*/
+function toggleModal(modalID){
+    document.getElementById(modalID).classList.toggle("hidden");
+    document.getElementById(modalID + "-backdrop").classList.toggle("hidden");
+    document.getElementById(modalID).classList.toggle("flex");
+    document.getElementById(modalID + "-backdrop").classList.toggle("flex");
+}
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++*/
