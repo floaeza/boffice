@@ -50,7 +50,9 @@
         <input id="commandLine" class="flex items-center w-full h-10 pl-16 text-sm font-normal text-gray-600 border border-gray-300 rounded focus:outline-none focus:border focus:border-indigo-700" placeholder="Example: logread"/>
       </div>
       <div class="relative flex-auto p-6">
-        <p id="commandResponse" class="my-4 text-lg leading-relaxed text-center text-blueGray-500"></p>
+        <p id="commandResponse" class="my-4 overflow-auto text-lg leading-relaxed text-center text-blueGray-500">
+          ================================================================================ AV stream status: stream_id: 4 window_id: 0 (x:0 y:0 w:1280 h:720) window_visible = 1 passthrough: None pvr: PVR-Disabled speed: 1.00 position: npt:37.417 start_time:npt:0.000 end_time:npt:162.837 VPTS: 3474344 APTS: 3489840 URL: http://10.0.3.10/Clase/ClaseAzulAmino/Media/VDPL_2020.avi Video info: -->pid: 256 codec: H.264, profile: Unknown, level: 4.2, width: 1920, height: 1080, aspect: 0, refresh 23.976Hz progressive Audio info: preferred_lang: rus, volume 100 -->pid: 257 lang: codec: AAC-ADTS No subtitle PIDs No teletext PIDsclea
+        </p>
       </div>
       <!--footer-->
       <div class="flex items-center justify-end p-6 border-t border-solid rounded-b border-blueGray-200">
