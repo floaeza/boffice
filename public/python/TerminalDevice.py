@@ -20,10 +20,9 @@ if parametro[1] == 'AMINO':
         ip = parametro[0]
         t.connect(ip, username='root', password='root2root', p=23, timeout=8)
         output= t.execute(parametro[2])
-        output=output.replace('"',' ')
-        # output = output.split('\r\n')
-        t.close()
+        output=output.replace('\'','')
+        output = output.split('\r\n')
+        t.close() 
         print(output)
     except:
         print('DISPOSITIVO NO ALCANZADO')
-

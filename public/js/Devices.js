@@ -64,6 +64,8 @@ function getInfoByCommand(mac, command, commandResponse){
             //     log = aux.split('\r\n');
             console.log(response[0]);
             commandResponse.innerHTML = response[0];
+            // let aux = JSON.parse(response[0]);
+            // console.log(aux);
     },
     error: function(XMLHttpRequest, textStatus, errorThrown) { 
         console.log("Status: " + textStatus); 
