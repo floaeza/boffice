@@ -4,7 +4,7 @@ use App\Http\Controllers\DeviceController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
-    return view('layouts.app');
+    return view('welcome');
 });
 
 Auth::routes();
