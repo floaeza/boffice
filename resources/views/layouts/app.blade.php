@@ -28,7 +28,6 @@
     </style>
 </head>
 <body>
-    <div class="h-screen bg-gray-900 font-nunito">
         <div id="app">
             <nav class="bg-gray-800 shadow-sm">
                 <div class="container flex items-center justify-between px-6 py-4 mx-auto">
@@ -80,9 +79,8 @@
                 </div>
             </nav>
         </div>
-        <main class="py-4">
+        <main class="py-4 bg-gray-700">
             @yield('content')
         </main>
-    </div>
 </body>
 </html>
