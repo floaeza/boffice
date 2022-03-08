@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call(DeviceSeeder::class);
         $this->call(PackageSeeder::class);
+        $this->call(LocationSeeder::class);
     }
 }

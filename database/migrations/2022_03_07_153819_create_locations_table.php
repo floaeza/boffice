@@ -18,7 +18,7 @@ return new class extends Migration
             $table->char('name',25);
             $table->text('description');
             $table->unsignedBigInteger('package_id');
-            $table->foreign('package_id')->references('id')->on('devices');
+            $table->foreign('package_id')->references('id')->on('packages');
             $table->timestamps();
         });
     }
