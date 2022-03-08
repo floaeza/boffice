@@ -20,6 +20,8 @@ return new class extends Migration
             $table->char('make',25);
             $table->char('model',25);
             $table->char('software_version', 45);
+            $table->unsignedBigInteger('location_id');
+            $table->foreign('location_id')->references('id')->on('locations');
             $table->timestamps();
         });
     }

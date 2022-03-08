@@ -26,6 +26,7 @@ class DeviceFactory extends Factory
             'make' =>$this->faker->randomElement(['Infomir', 'Amino', 'Kamai', 'LG', 'Samsung']),
             'model' =>$this->faker->randomElement(['A50', 'A540', 'A140', '7XM', 'MAG420', 'MAG524']),
             'software_version' =>$this->faker->randomElement(['Opera', 'Safari']),
+            'location_id' =>$this->faker->numberBetween(1,250),
         ];
     }
 }
