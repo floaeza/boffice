@@ -21,8 +21,8 @@ class DeviceFactory extends Factory
     {
         return [
             //
-            'mac_address' =>$this->faker->unique()->numerify('##-##-##-##-##-##'), 
-            'ip_direction' =>$this->faker->unique()->numerify('############'), 
+            'mac_address' =>$this->faker->unique()->macAddress(), 
+            'ip_direction' =>$this->faker->unique()->localIpv4(), 
             'make' =>$this->faker->randomElement(['Infomir', 'Amino', 'Kamai', 'LG', 'Samsung']),
             'model' =>$this->faker->randomElement(['A50', 'A540', 'A140', '7XM', 'MAG420', 'MAG524']),
             'software_version' =>$this->faker->randomElement(['Opera', 'Safari']),
