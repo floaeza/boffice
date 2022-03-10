@@ -21,7 +21,7 @@ class ChanneldataFactory extends Factory
         return [
             //
             'quality' =>$this->faker->randomElement(['HD','SD']), 
-            'multicast' =>$this->faker->unique()->numerify('igmp:// ###.##.#.#'), 
+            'multicast' =>$this->faker->unique()->numerify('igmp://###.##.#.#'), 
             'number' =>$this->faker->numberBetween(1,100),
             'port' =>$this->faker->numberBetween(1000,3000),
             'link' =>$this->faker->url(),
