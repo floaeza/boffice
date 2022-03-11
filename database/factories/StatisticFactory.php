@@ -21,6 +21,9 @@ class StatisticFactory extends Factory
             //
             'type' =>$this->faker->randomElement(['TV','TV']),
             'time' =>$this->faker->randomFloat(2,120,7200),
+            'location_id' =>$this->faker->numberBetween(1,250),
+            'channel_id' =>$this->faker->numberBetween(1,180),
+            'device_id' =>$this->faker->numberBetween(1,350),
         ];
     }
 }

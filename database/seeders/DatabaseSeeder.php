@@ -23,8 +23,5 @@ class DatabaseSeeder extends Seeder
         $this->call(ChannelSeeder::class);
         $this->call(DeviceSeeder::class);
         $this->call(StatisticSeeder::class);
-        $this->call(StatisticDataSeeder::class);
-
-
     }
 }

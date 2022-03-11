@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class ChannelData extends Model
 {
     use HasFactory;
+
 }
