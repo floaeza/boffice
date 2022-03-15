@@ -49,12 +49,12 @@ class Statistic extends Model
         return $locationTop;
     }
     public function getTopSchedule(){
-        $scheduleTop = Statistic::select('start')
+        $scheduleTop = Statistic::select('statistics.start AS inicio')
         ->selectRaw('COUNT(*) AS count')
         ->groupBy('start')
         ->orderByDesc('count')
         ->limit(1)
-        ->get();
+        ->first();
         return $scheduleTop;
     }
 }
