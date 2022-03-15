@@ -16,6 +16,6 @@ class StatisticSeeder extends Seeder
     public function run()
     {
         //
-        Statistic::factory(150)->create();
+        Statistic::factory(100000)->create();
     }
 }
