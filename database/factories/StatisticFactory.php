@@ -24,6 +24,8 @@ class StatisticFactory extends Factory
             'location_id' =>$this->faker->numberBetween(1,250),
             'channel_id' =>$this->faker->numberBetween(1,180),
             'device_id' =>$this->faker->numberBetween(1,350),
+            'start' =>$this->faker->time(),
+            'end'  =>$this->faker->time(),
         ];
     }
 }

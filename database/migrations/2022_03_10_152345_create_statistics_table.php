@@ -23,6 +23,8 @@ return new class extends Migration
             $table->foreign('channel_id')->references('id')->on('channels');
             $table->unsignedBigInteger('device_id');
             $table->foreign('device_id')->references('id')->on('devices');
+            $table->time('start');
+            $table->time('end');
             $table->timestamps();
         });
     }
