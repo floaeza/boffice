@@ -1,5 +1,6 @@
 from telnetlib import DO
-import paramiko, xtelnet, requests, json, socket, base64, sys, subprocess, os, platform
+from sys import platform
+import paramiko, xtelnet, requests, json, socket, base64, sys, subprocess, os, ast
 
 def getInterfacesNetwork():
     Interfaces      = []
@@ -124,21 +125,51 @@ def getRamInfo():
 
     return dict(zip(head, ramInfoFilter))
 
-parametro = ' '.join(sys.argv[1:])
-parametro = parametro.strip()
-parametro = parametro.split(',')
+def getInfoForWindows():
+    parametro = ' '.join(sys.argv[1:])
+    parametro = parametro.strip()
+    parametro = parametro.split(',')
+    if len(parametro) == 1:
+        if parametro[0] == 'getRaminfo':
+            aux = ast.literal_eval("{'Mem:': ['Mem:', '3958548', '668544', '2213032', '23292', '1076972', '2936056'], 'Swap:': ['Swap:', '8152052', '0', '8152052'], 'head': ['total', 'used', 'free', 'shared', 'buff/cache', 'available']}")
+            print(aux)
+        if parametro[0] == 'getDiskInfo':
+            aux= ast.literal_eval("{'Mem:': ['Mem:', '3958548', '668544', '2213032', '23292', '1076972', '2936056'], 'Swap:': ['Swap:', '8152052', '0', '8152052'], 'head': ['total', 'used', 'free', 'shared', 'buff/cache', 'available']}")
+            print(aux)
+        if parametro[0] == 'getNetworkStatus':
+            aux = ast.literal_eval("{'Mem:': ['Mem:', '3958548', '668544', '2213032', '23292', '1076972', '2936056'], 'Swap:': ['Swap:', '8152052', '0', '8152052'], 'head': ['total', 'used', 'free', 'shared', 'buff/cache', 'available']}")
+            print(aux)
+        if parametro[0] == 'getCpuInfo':
+            aux = ast.literal_eval("{'Mem:': ['Mem:', '3958548', '668544', '2213032', '23292', '1076972', '2936056'], 'Swap:': ['Swap:', '8152052', '0', '8152052'], 'head': ['total', 'used', 'free', 'shared', 'buff/cache', 'available']}")
+            print(aux)
+        if parametro[0] == 'getInterfacesNetwork':
+            aux = ast.literal_eval("{'Mem:': ['Mem:', '3958548', '668544', '2213032', '23292', '1076972', '2936056'], 'Swap:': ['Swap:', '8152052', '0', '8152052'], 'head': ['total', 'used', 'free', 'shared', 'buff/cache', 'available']}")
+            print(aux)
+    else:
+        if parametro[0] == 'getServiceInfo':
+            aux = ast.literal_eval("{'Mem:': ['Mem:', '3958548', '668544', '2213032', '23292', '1076972', '2936056'], 'Swap:': ['Swap:', '8152052', '0', '8152052'], 'head': ['total', 'used', 'free', 'shared', 'buff/cache', 'available']}")
+            #print(aux)
 
-if len(parametro) == 1:
-    if parametro[0] == 'getRaminfo':
-        print(getRamInfo())
-    if parametro[0] == 'getDiskInfo':
-        print(getDiskInfo())
-    if parametro[0] == 'getNetworkStatus':
-        print(getNetworkStatus())
-    if parametro[0] == 'getDiskInfo':
-        print(getCpuInfo())
-    if parametro[0] == 'getInterfacesNetwork':
-        print(getInterfacesNetwork())
-else:
-    if parametro[0] == 'getServiceInfo':
-        print(getServiceInfo(parametro[1]))
+def getInfoForLinux():
+    parametro = ' '.join(sys.argv[1:])
+    parametro = parametro.strip()
+    parametro = parametro.split(',')
+    if len(parametro) == 1:
+        if parametro[0] == 'getRamInfo':
+            print(getRamInfo())
+        if parametro[0] == 'getDiskInfo':
+            print(getDiskInfo())
+        if parametro[0] == 'getNetworkStatus':
+            print(getNetworkStatus())
+        if parametro[0] == 'getCpuInfo':
+            print(getCpuInfo())
+        if parametro[0] == 'getInterfacesNetwork':
+            print(getInterfacesNetwork())
+    else:
+        if parametro[0] == 'getServiceInfo':
+            print(getServiceInfo(parametro[1]))
+
+if platform == 'linux' or platform == 'linux2':
+    getInfoForWindows()
+elif platform == 'win32':
+    getInfoForWindows()
