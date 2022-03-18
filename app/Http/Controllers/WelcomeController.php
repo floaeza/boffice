@@ -27,10 +27,9 @@ class WelcomeController extends Controller
         // $mariaInfo      = $statistic->getServerInfo('getServiceInfo,systemctl status mariadb.service');
         // $mariaInfo      = collect(json_decode($mariaInfo, true));
         $phpInfo        = $statistic->getServerInfo('getServiceInfo,systemctl status php-fpm.service');
-        $phpInfo        = collect(json_decode($phpInfo, true));
-
-        dd($phpInfo['Active']);
-
+        $phpInfo        = json_decode($phpInfo, true);
+        $f = array_keys($phpInfo);
+        dd($phpInfo[$f[1]]);
         
         return view('welcome');
     }
