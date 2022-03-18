@@ -134,21 +134,21 @@ def getInfoForWindows():
             aux = ast.literal_eval("{'Mem:': ['Mem:', '3958548', '668544', '2213032', '23292', '1076972', '2936056'], 'Swap:': ['Swap:', '8152052', '0', '8152052'], 'head': ['total', 'used', 'free', 'shared', 'buff/cache', 'available']}")
             print(aux)
         if parametro[0] == 'getDiskInfo':
-            aux= ast.literal_eval("{'Mem:': ['Mem:', '3958548', '668544', '2213032', '23292', '1076972', '2936056'], 'Swap:': ['Swap:', '8152052', '0', '8152052'], 'head': ['total', 'used', 'free', 'shared', 'buff/cache', 'available']}")
+            aux= ast.literal_eval("{'devtmpfs': ['devtmpfs', '1G', '0G', '1G', '0', '/dev'], 'tmpfs': ['tmpfs', '1G', '1G', '1G', '1', '/run/user/0'], '/dev/mapper/fedora_fedora-root': ['/dev/mapper/fedora_fedora-root', '60G', '5G', '56G', '8', '/'], '/dev/mapper/fedora_fedora-var': ['/dev/mapper/fedora_fedora-var', '118G', '3G', '116G', '3', '/var'], '/dev/mapper/fedora_fedora-home': ['/dev/mapper/fedora_fedora-home', '65G', '1G', '65G', '1', '/home'], '/dev/sda3': ['/dev/sda3', '2G', '1G', '2G', '15', '/boot'], '/dev/loop3': ['/dev/loop3', '1G', '1G', '0G', '100', '/var/lib/snapd/snap/snapd/15177'], '/dev/loop1': ['/dev/loop1', '1G', '1G', '0G', '100', '/var/lib/snapd/snap/nmap/2536'], '/dev/loop2': ['/dev/loop2', '1G', '1G', '0G', '100', '/var/lib/snapd/snap/snapd/14978'], '/dev/loop0': ['/dev/loop0', '1G', '1G', '0G', '100', '/var/lib/snapd/snap/core18/2284'], 'head': ['Filesystem', '1G-blocks', 'Used', 'Available', 'Use', 'Mounted']}")
             print(aux)
         if parametro[0] == 'getNetworkStatus':
-            aux = ast.literal_eval("{'Mem:': ['Mem:', '3958548', '668544', '2213032', '23292', '1076972', '2936056'], 'Swap:': ['Swap:', '8152052', '0', '8152052'], 'head': ['total', 'used', 'free', 'shared', 'buff/cache', 'available']}")
+            aux = ast.literal_eval("{'Internet': 'Available', 'DNS': 'Without Connection'}")
             print(aux)
         if parametro[0] == 'getCpuInfo':
-            aux = ast.literal_eval("{'Mem:': ['Mem:', '3958548', '668544', '2213032', '23292', '1076972', '2936056'], 'Swap:': ['Swap:', '8152052', '0', '8152052'], 'head': ['total', 'used', 'free', 'shared', 'buff/cache', 'available']}")
+            aux = ast.literal_eval("{'11:39:36': '11:39:36', 'AM': 'AM', 'CPU': 'all', 'usr': '0.57', 'nice': '0.03', 'sys': '0.47', 'iowait': '0.14', 'irq': '0.25', 'soft': '0.15', 'steal': '0.00', 'guest': '0.00', 'gnice': '0.00', 'idle': '98.39'}")
             print(aux)
         if parametro[0] == 'getInterfacesNetwork':
-            aux = ast.literal_eval("{'Mem:': ['Mem:', '3958548', '668544', '2213032', '23292', '1076972', '2936056'], 'Swap:': ['Swap:', '8152052', '0', '8152052'], 'head': ['total', 'used', 'free', 'shared', 'buff/cache', 'available']}")
+            aux = ast.literal_eval("{'lo': '127.0.0.1', 'ens192': '10.0.3.248', 'ens224': '172.16.0.84'}")
             print(aux)
     else:
         if parametro[0] == 'getServiceInfo':
-            aux = ast.literal_eval("{'Mem:': ['Mem:', '3958548', '668544', '2213032', '23292', '1076972', '2936056'], 'Swap:': ['Swap:', '8152052', '0', '8152052'], 'head': ['total', 'used', 'free', 'shared', 'buff/cache', 'available']}")
-            #print(aux)
+            aux = ast.literal_eval("{'Active': ['Activo', 'Active: active (running) since Wed 2022-03-16 11:26:59 CST; 2 days ago'], 'Status': ['Status: Total requests: 96; Idle/Busy workers 100/0;Requests/sec: 0.000552; Bytes served/sec:  16 B/sec'], 'Tasks': ['Tasks: 230 (limit: 4591)']}")
+            print(aux)
 
 def getInfoForLinux():
     parametro = ' '.join(sys.argv[1:])
