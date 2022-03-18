@@ -147,28 +147,28 @@ def getInfoForWindows():
     parametro = parametro.split(',')
     if len(parametro) == 1:
         if parametro[0] == 'getRamInfo':
-            aux = ast.literal_eval("{'Mem:': ['Mem:', '3958548', '668544', '2213032', '23292', '1076972', '2936056'], 'Swap:': ['Swap:', '8152052', '0', '8152052'], 'head': ['total', 'used', 'free', 'shared', 'buff/cache', 'available']}")
+            aux = ast.literal_eval("[['Mem:', 'Swap:', 'head'], [['Mem:', '3958548', '700632', '2175212', '23276', '1082704', '2903868'], ['Swap:', '8152052', '0', '8152052'], ['total', 'used', 'free', 'shared', 'buff/cache', 'available']]]")
             jsonObj = json.dumps(aux, indent=4)
             print(jsonObj)
         if parametro[0] == 'getDiskInfo':
-            aux= ast.literal_eval("{'devtmpfs': ['devtmpfs', '1G', '0G', '1G', '0', '/dev'], 'tmpfs': ['tmpfs', '1G', '1G', '1G', '1', '/run/user/0'], '/dev/mapper/fedora_fedora-root': ['/dev/mapper/fedora_fedora-root', '60G', '5G', '56G', '8', '/'], '/dev/mapper/fedora_fedora-var': ['/dev/mapper/fedora_fedora-var', '118G', '3G', '116G', '3', '/var'], '/dev/mapper/fedora_fedora-home': ['/dev/mapper/fedora_fedora-home', '65G', '1G', '65G', '1', '/home'], '/dev/sda3': ['/dev/sda3', '2G', '1G', '2G', '15', '/boot'], '/dev/loop3': ['/dev/loop3', '1G', '1G', '0G', '100', '/var/lib/snapd/snap/snapd/15177'], '/dev/loop1': ['/dev/loop1', '1G', '1G', '0G', '100', '/var/lib/snapd/snap/nmap/2536'], '/dev/loop2': ['/dev/loop2', '1G', '1G', '0G', '100', '/var/lib/snapd/snap/snapd/14978'], '/dev/loop0': ['/dev/loop0', '1G', '1G', '0G', '100', '/var/lib/snapd/snap/core18/2284'], 'head': ['Filesystem', '1G-blocks', 'Used', 'Available', 'Use', 'Mounted']}")
+            aux= ast.literal_eval("[['devtmpfs', 'tmpfs', 'tmpfs', '/dev/mapper/fedora_fedora-root', 'tmpfs', '/dev/mapper/fedora_fedora-var', '/dev/mapper/fedora_fedora-home', '/dev/sda3', '/dev/loop3', '/dev/loop1', '/dev/loop2', '/dev/loop0', 'tmpfs', 'head'], [['devtmpfs', '1G', '0G', '1G', '0%', '/dev'], ['tmpfs', '2G', '0G', '2G', '0%', '/dev/shm'], ['tmpfs', '1G', '1G', '1G', '1%', '/run'], ['/dev/mapper/fedora_fedora-root', '60G', '5G', '56G', '8%', '/'], ['tmpfs', '2G', '1G', '2G', '1%', '/tmp'], ['/dev/mapper/fedora_fedora-var', '118G', '3G', '116G', '3%', '/var'], ['/dev/mapper/fedora_fedora-home', '65G', '1G', '65G', '1%', '/home'], ['/dev/sda3', '2G', '1G', '2G', '15%', '/boot'], ['/dev/loop3', '1G', '1G', '0G', '100%', '/var/lib/snapd/snap/snapd/15177'], ['/dev/loop1', '1G', '1G', '0G', '100%', '/var/lib/snapd/snap/nmap/2536'], ['/dev/loop2', '1G', '1G', '0G', '100%', '/var/lib/snapd/snap/snapd/14978'], ['/dev/loop0', '1G', '1G', '0G', '100%', '/var/lib/snapd/snap/core18/2284'], ['tmpfs', '1G', '1G', '1G', '1%', '/run/user/0'], ['Filesystem', '1G-blocks', 'Used', 'Available', 'Use%', 'Mounted']]]")
             jsonObj = json.dumps(aux, indent=4)
             print(jsonObj)
         if parametro[0] == 'getNetworkStatus':
-            aux = ast.literal_eval("{'Internet': 'Available', 'DNS': 'Without Connection'}")
+            aux = ast.literal_eval("[['Internet', 'DNS'], ['Available', 'Without Connection']]")
             jsonObj = json.dumps(aux, indent=4)
             print(jsonObj)
         if parametro[0] == 'getCpuInfo':
-            aux = ast.literal_eval("{'11:39:36': '11:39:36', 'AM': 'AM', 'CPU': 'all', 'usr': '0.57', 'nice': '0.03', 'sys': '0.47', 'iowait': '0.14', 'irq': '0.25', 'soft': '0.15', 'steal': '0.00', 'guest': '0.00', 'gnice': '0.00', 'idle': '98.39'}")
+            aux = ast.literal_eval("[['01:41:37', 'PM', 'CPU', 'usr', 'nice', 'sys', 'iowait', 'irq', 'soft', 'steal', 'guest', 'gnice', 'idle'], ['01:41:37', 'PM', 'all', '0.58', '0.03', '0.48', '0.14', '0.25', '0.15', '0.00', '0.00', '0.00', '98.37']]")
             jsonObj = json.dumps(aux, indent=4)
             print(jsonObj)
         if parametro[0] == 'getInterfacesNetwork':
-            aux = ast.literal_eval("{'lo': '127.0.0.1', 'ens192': '10.0.3.248', 'ens224': '172.16.0.84'}")
+            aux = ast.literal_eval("[['lo', 'ens192', 'ens224'], ['127.0.0.1', '10.0.3.248', '172.16.0.84']]")
             jsonObj = json.dumps(aux, indent=4)
             print(jsonObj)
     else:
         if parametro[0] == 'getServiceInfo':
-            aux = ast.literal_eval("{'Active': ['Activo', 'Active: active (running) since Wed 2022-03-16 11:26:59 CST; 2 days ago'], 'Status': ['Status: Total requests: 96; Idle/Busy workers 100/0;Requests/sec: 0.000552; Bytes served/sec:  16 B/sec'], 'Tasks': ['Tasks: 230 (limit: 4591)']}")
+            aux = ast.literal_eval("[['Active', 'Status', 'Tasks'], [['Activo', 'Active: active (running) since Wed 2022-03-16 11:26:59 CST; 2 days ago'], ['Status: Total requests: 96; Idle/Busy workers 100/0;Requests/sec: 0.00053; Bytes served/sec:  15 B/sec'], ['Tasks: 230 (limit: 4591)']]]")
             jsonObj = json.dumps(aux, indent=4)
             print(jsonObj)
 
