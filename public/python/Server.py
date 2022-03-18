@@ -130,7 +130,7 @@ def getInfoForWindows():
     parametro = parametro.strip()
     parametro = parametro.split(',')
     if len(parametro) == 1:
-        if parametro[0] == 'getRaminfo':
+        if parametro[0] == 'getRamInfo':
             aux = ast.literal_eval("{'Mem:': ['Mem:', '3958548', '668544', '2213032', '23292', '1076972', '2936056'], 'Swap:': ['Swap:', '8152052', '0', '8152052'], 'head': ['total', 'used', 'free', 'shared', 'buff/cache', 'available']}")
             jsonObj = json.dumps(aux, indent=4)
             print(jsonObj)
@@ -176,6 +176,6 @@ def getInfoForLinux():
             print(getServiceInfo(parametro[1]))
 
 if platform == 'linux' or platform == 'linux2':
-    getInfoForWindows()
+    getInfoForLinux()
 elif platform == 'win32':
     getInfoForWindows()
