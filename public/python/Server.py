@@ -15,8 +15,10 @@ def getInterfacesNetwork():
         output      = output[1].strip()
         ip          = output.split(' ')
         Interfaces_ip.append(ip[1])
-
-    return dict(zip(Interfaces, Interfaces_ip))
+    aux = []
+    aux.append(Interfaces)
+    aux.append(Interfaces_ip)
+    return aux
 
 def getCpuInfo():
     CpuInfo = subprocess.Popen('mpstat -P ALL', shell=True, stdout=subprocess.PIPE).stdout.read()
@@ -28,7 +30,10 @@ def getCpuInfo():
     head    = list(filter(None, head))
     info    = list(filter(None, info))
 
-    return dict(zip(head, info))
+    aux = []
+    aux.append(head)
+    aux.append(info)
+    return aux
 
 def getServiceInfo(command):
     serviceWithoutFilter = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE).stdout.read()
@@ -62,8 +67,10 @@ def getServiceInfo(command):
             ServiceInfo.append(x)
             info.append(ServiceInfo) 
             ServiceInfo = []
-
-    return dict(zip(head, info))
+    aux = []
+    aux.append(head)
+    aux.append(info)
+    return aux
 
 def getNetworkStatus():
     head    = ['Internet', 'DNS']
@@ -75,8 +82,10 @@ def getNetworkStatus():
             info.append('Available')
         else:
             info.append('Without Connection')
-
-    return dict(zip(head, info))
+    aux = []
+    aux.append(head)
+    aux.append(info)
+    return aux
 
 def getDiskInfo():
     diskWithoutFilter = subprocess.Popen('df -BG', shell=True, stdout=subprocess.PIPE).stdout.read()
@@ -100,7 +109,11 @@ def getDiskInfo():
     head.append('head')
     diskInfoFilter.append(headTable)
 
-    return dict(zip(head, diskInfoFilter))
+    aux = []
+    aux.append(head)
+    aux.append(diskInfoFilter)
+
+    return aux
 
 def getRamInfo():
     ramWithoutFilter = subprocess.Popen('free', shell=True, stdout=subprocess.PIPE).stdout.read()
@@ -123,7 +136,10 @@ def getRamInfo():
     head.append('head')
     ramInfoFilter.append(headTable)
 
-    return dict(zip(head, ramInfoFilter))
+    aux = []
+    aux.append(head)
+    aux.append(ramInfoFilter)
+    return aux
 
 def getInfoForWindows():
     parametro = ' '.join(sys.argv[1:])
