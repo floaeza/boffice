@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
-Route::get('/', [WelcomeController::class, 'index']);
+Route::get('/', [WelcomeController::class, 'welcome']);
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('BBINCO/Device/Reboot/' ,[DeviceController::class, 'rebootDevice']);
 Route::get('BBINCO/Device/Terminal/' ,[DeviceController::class, 'terminalDevice']);

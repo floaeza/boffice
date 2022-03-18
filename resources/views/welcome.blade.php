@@ -94,7 +94,7 @@
 					</svg>
 				</div>
 				<div class="text-right">
-					<p class="text-2xl">{{ $countDevices }}</p>
+					<p class="text-2xl">3</p>
 					<p>Dispositivos</p>
 				</div>
 			</div>
@@ -118,7 +118,7 @@
 					</svg>
 				</div>
 				<div class="text-right">
-					<p class="text-2xl">{{ $topLocation->location }}</p>
+					<p class="text-2xl">Shaphiro</p>
 					<p>Residencia mas activa</p>
 				</div>
 			</div>
@@ -136,7 +136,7 @@
 					</svg>
 				</div>
 				<div class="text-right">
-					<p class="text-2xl">{{ $topChannel->nombreCanal }}</p>
+					<p class="text-2xl">Fox</p>
 					<p>Canal mas visto</p>
 				</div>
 			</div>
@@ -154,7 +154,7 @@
 					</svg>
 				</div>
 				<div class="text-right">
-					<p class="text-2xl">{{ $topSchedule->inicio }}</p>
+					<p class="text-2xl">14:00</p>
 					<p>Horario de mayor uso</p>
 				</div>
 			</div>
@@ -202,7 +202,7 @@
 					</div>
 				</div>
 			</div>
-			
+				
 			<div class="relative flex flex-col w-full min-w-0 break-words bg-gray-800 rounded shadow-lg">
 				<div class="px-0 mb-0 border-0 rounded-t">
 					<div class="flex flex-wrap items-center px-4 py-2">
