@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Channel;
 use App\Models\Location;
 use App\Models\Device;
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class Statistic extends Model
 {
@@ -56,5 +58,18 @@ class Statistic extends Model
         ->limit(1)
         ->first();
         return $scheduleTop;
+    }
+    public function getServerInfo($service){
+        $path = public_path();
+        $path = $path.'/python/Server.py';
+        $arg  = $service;
+        $process = new Process(['python', $path, $arg]);
+        $process->run();
+        // error handling
+        if (!$process->isSuccessful()) {
+            throw new ProcessFailedException($process);
+        }
+        $output = $process->getOutput();
+        return $output;
     }
 }

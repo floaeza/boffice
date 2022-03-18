@@ -132,23 +132,29 @@ def getInfoForWindows():
     if len(parametro) == 1:
         if parametro[0] == 'getRaminfo':
             aux = ast.literal_eval("{'Mem:': ['Mem:', '3958548', '668544', '2213032', '23292', '1076972', '2936056'], 'Swap:': ['Swap:', '8152052', '0', '8152052'], 'head': ['total', 'used', 'free', 'shared', 'buff/cache', 'available']}")
-            print(aux)
+            jsonObj = json.dumps(aux, indent=4)
+            print(jsonObj)
         if parametro[0] == 'getDiskInfo':
             aux= ast.literal_eval("{'Mem:': ['Mem:', '3958548', '668544', '2213032', '23292', '1076972', '2936056'], 'Swap:': ['Swap:', '8152052', '0', '8152052'], 'head': ['total', 'used', 'free', 'shared', 'buff/cache', 'available']}")
-            print(aux)
+            jsonObj = json.dumps(aux, indent=4)
+            print(jsonObj)
         if parametro[0] == 'getNetworkStatus':
             aux = ast.literal_eval("{'Mem:': ['Mem:', '3958548', '668544', '2213032', '23292', '1076972', '2936056'], 'Swap:': ['Swap:', '8152052', '0', '8152052'], 'head': ['total', 'used', 'free', 'shared', 'buff/cache', 'available']}")
-            print(aux)
+            jsonObj = json.dumps(aux, indent=4)
+            print(jsonObj)
         if parametro[0] == 'getCpuInfo':
             aux = ast.literal_eval("{'Mem:': ['Mem:', '3958548', '668544', '2213032', '23292', '1076972', '2936056'], 'Swap:': ['Swap:', '8152052', '0', '8152052'], 'head': ['total', 'used', 'free', 'shared', 'buff/cache', 'available']}")
-            print(aux)
+            jsonObj = json.dumps(aux, indent=4)
+            print(jsonObj)
         if parametro[0] == 'getInterfacesNetwork':
             aux = ast.literal_eval("{'Mem:': ['Mem:', '3958548', '668544', '2213032', '23292', '1076972', '2936056'], 'Swap:': ['Swap:', '8152052', '0', '8152052'], 'head': ['total', 'used', 'free', 'shared', 'buff/cache', 'available']}")
-            print(aux)
+            jsonObj = json.dumps(aux, indent=4)
+            print(jsonObj)
     else:
         if parametro[0] == 'getServiceInfo':
             aux = ast.literal_eval("{'Mem:': ['Mem:', '3958548', '668544', '2213032', '23292', '1076972', '2936056'], 'Swap:': ['Swap:', '8152052', '0', '8152052'], 'head': ['total', 'used', 'free', 'shared', 'buff/cache', 'available']}")
-            #print(aux)
+            jsonObj = json.dumps(aux, indent=4)
+            print(jsonObj)
 
 def getInfoForLinux():
     parametro = ' '.join(sys.argv[1:])
