@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Statistic;
 use App\Models\Device;
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class WelcomeController extends Controller
 {
@@ -16,6 +18,9 @@ class WelcomeController extends Controller
         $topLocation    = $statistic->getTopLocation();
         $topChannel     = $statistic->getTopChannel();
         $topSchedule    = $statistic->getTopSchedule();
-        return view('welcome', compact('topLocation', 'topChannel', 'topSchedule', 'countDevices'));
+        $diskInfo       = $statistic->getServerInfo('getDiskInfo');
+        $diskInfo       = collect(json_decode($diskInfo, true));
+        dd($diskInfo);
+        return view('welcome')->with(compact('topLocation', 'topChannel', 'topSchedule', 'countDevices','diskInfo'));
     }
 }
