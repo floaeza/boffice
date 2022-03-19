@@ -168,7 +168,7 @@ def getInfoForWindows():
             print(jsonObj)
     else:
         if parametro[0] == 'getServiceInfo':
-            aux = ast.literal_eval("[['Active', 'Status', 'Tasks'], [['Activo', 'Active: active (running) since Wed 2022-03-16 11:26:59 CST; 2 days ago'], ['Status: Total requests: 96; Idle/Busy workers 100/0;Requests/sec: 0.00053; Bytes served/sec:  15 B/sec'], ['Tasks: 230 (limit: 4591)']]]")
+            aux = ast.literal_eval("[['Active', 'Status', 'Tasks'], [['Dead', 'Active: active (running) since Wed 2022-03-16 11:26:59 CST; 2 days ago'], ['Status: Total requests: 96; Idle/Busy workers 100/0;Requests/sec: 0.00053; Bytes served/sec:  15 B/sec'], ['Tasks: 230 (limit: 4591)']]]")
             jsonObj = json.dumps(aux, indent=4)
             print(jsonObj)
 
