@@ -32,6 +32,7 @@ class WelcomeController extends Controller
         $phpInfo        = $statistic->getServerInfo('getServiceInfo,systemctl status php-fpm.service');
         $phpInfo        = json_decode($phpInfo, true);
         $data = array();
+
         foreach ($phpInfo[1] as $key) {
             if ($key[0] == 'Activo') {
                 $data['PHP']= 'Activo';
@@ -54,6 +55,26 @@ class WelcomeController extends Controller
             }
         }
 
+        $timeRunningPHP             = explode(';', $phpInfo[1][0][1]);
+        $timeRunningHTTP            = explode(';', $httpdInfo[1][0][1]);
+        $timeRunningDB              = explode(';', $mariaInfo[1][0][1]);
+
+        preg_match_all('!\d+!', $phpInfo[1][2][0], $phpTasks);
+        preg_match_all('!\d+!', $httpdInfo[1][2][0], $httpTasks);
+        preg_match_all('!\d+!', $mariaInfo[1][2][0], $dbTasks);
+
+        $data['PHP']                = ['status'      =>$data['PHP'], 
+                                       'timeRunning' =>$timeRunningPHP[1],
+                                       'tasks'      =>$phpTasks[0][0],
+                                       'maxTasks'   =>$phpTasks[0][1]];
+        $data['HTTP']               = ['status'      =>$data['HTTP'], 
+                                       'timeRunning' =>$timeRunningHTTP[1],
+                                       'tasks'       =>$httpTasks[0][0],
+                                       'maxTasks'    =>$httpTasks[0][1]];
+        $data['DB']                 = ['status'      =>$data['DB'], 
+                                       'timeRunning' =>$timeRunningDB[1],
+                                       'tasks'       =>$dbTasks[0][0],
+                                       'maxTasks'    =>$dbTasks[0][1]];
         $data['CPU']                = $cpuInfo[1][3];
         $data['DISK']               = $diskInfo[1][5][4];
         $data['DEVICES']            = $countDevices;

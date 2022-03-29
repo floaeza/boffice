@@ -82,7 +82,7 @@
 		<div class="grid grid-cols-1 gap-4 p-4 sm:grid-cols-2 lg:grid-cols-4">
 			<div class="flex items-center justify-between p-3 font-medium text-white bg-gray-800 border-b-4 border-gray-600 rounded-md shadow-lg group">
 				<div class="flex items-center justify-center transition-all duration-300 transform bg-white rounded-full w-14 h-14 group-hover:rotate-12">
-					<svg width="30" height="30" fill="none" viewBox="0 0 20 20" stroke="currentColor" class="text-gray-800 transition-transform duration-500 ease-in-out transform stroke-current">
+					<svg id="deviceSVG" width="30" height="30" fill="none" viewBox="0 0 20 20" stroke="currentColor" class="invisible text-gray-800 transition-transform duration-500 ease-in-out transform stroke-current">
 						<path d="M17.237,3.056H2.93c-0.694,0-1.263,0.568-1.263,1.263v8.837c0,0.694,0.568,1.263,1.263,
 						1.263h4.629v0.879c-0.015,0.086-0.183,0.306-0.273,0.423c-0.223,0.293-0.455,0.592-0.293,0.92c0.07,
 						0.139,0.226,0.303,0.577,0.303h4.819c0.208,0,0.696,0,
@@ -92,15 +92,16 @@
 						0.228-0.193,0.421-0.421,0.421H2.93c-0.228,0-0.421-0.193-0.421-0.421v-1.263h15.149V13.156z M17.658,
 						11.052H2.509V4.319c0-0.228,0.193-0.421,0.421-0.421h14.308c0.228,0,0.421,0.193,0.421,0.421V11.052z"></path>
 					</svg>
+					<div name ="spinner" class="absolute w-12 h-12 border-8 border-gray-700 border-dashed rounded-full animate-spin border-t-transparent"></div>
 				</div>
 				<div class="text-right">
-					<p class="text-2xl">3</p>
+					<p class="text-2xl"></p>
 					<p>Dispositivos</p>
 				</div>
 			</div>
 			<div class="flex items-center justify-between p-3 font-medium text-white bg-gray-800 border-b-4 border-gray-600 rounded-md shadow-lg group">
 				<div class="flex items-center justify-center transition-all duration-300 transform bg-white rounded-full w-14 h-14 group-hover:rotate-12">
-					<svg width="30" height="30" fill="none" viewBox="0 0 20 20" stroke="currentColor" class="text-gray-800 transition-transform duration-500 ease-in-out transform stroke-current">
+					<svg id = "locationSVG" width="30" height="30" fill="none" viewBox="0 0 20 20" stroke="currentColor" class="invisible text-gray-800 transition-transform duration-500 ease-in-out transform stroke-current">
 						<path d="M15.684,16.959L10.879,8.52c0.886-0.343,1.517-1.193,1.517-2.186c0-1.296-1.076-2.323-2.396-2.323S7.604,
 						5.037,7.604,6.333c0,0.993,0.63,1.843,1.517,2.186l-4.818,8.439c-0.189,0.311,0.038,0.708,0.412,0.708h10.558C15.645,
 						17.667,15.871,17.27,15.684,16.959 M8.562,6.333c0-0.778,0.645-1.382,1.438-1.382s1.438,0.604,1.438,1.382c0,
@@ -116,15 +117,16 @@
 						0.04-0.192,0.04C5.982,8.668,5.807,8.563,5.728,8.387">
 						</path>
 					</svg>
+					<div name ="spinner" class="absolute w-12 h-12 border-8 border-gray-700 border-dashed rounded-full animate-spin border-t-transparent"></div>
 				</div>
 				<div class="text-right">
-					<p class="text-2xl">Shaphiro</p>
+					<p class="text-2xl"></p>
 					<p>Residencia mas activa</p>
 				</div>
 			</div>
 			<div class="flex items-center justify-between p-3 font-medium text-white bg-gray-800 border-b-4 border-gray-600 rounded-md shadow-lg group">
 				<div class="flex items-center justify-center transition-all duration-300 transform bg-white rounded-full w-14 h-14 group-hover:rotate-12">
-					<svg width="30" height="30" fill="none" viewBox="0 0 20 20" stroke="currentColor" class="text-gray-800 transition-transform duration-500 ease-in-out transform stroke-current">
+					<svg id= "channelSVG" width="30" height="30" fill="none" viewBox="0 0 20 20" stroke="currentColor" class="invisible text-gray-800 transition-transform duration-500 ease-in-out transform stroke-current">
 						<path d="M10,6.978c-1.666,0-3.022,1.356-3.022,3.022S8.334,13.022,10,13.022s3.022-1.356,3.022-3.022S11.666,
 						6.978,10,6.978M10,12.267c-1.25,0-2.267-1.017-2.267-2.267c0-1.25,1.016-2.267,2.267-2.267c1.251,0,2.267,1.016,
 						2.267,2.267C12.267,11.25,11.251,12.267,10,12.267 M18.391,9.733l-1.624-1.639C14.966,6.279,12.563,5.278,10,
@@ -134,15 +136,16 @@
 						7.639,6.033,10,6.033s4.573,0.922,6.229,2.593L17.59,10L16.229,11.373z">
 						</path>
 					</svg>
+					<div name ="spinner" class="absolute w-12 h-12 border-8 border-gray-700 border-dashed rounded-full animate-spin border-t-transparent"></div>
 				</div>
 				<div class="text-right">
-					<p class="text-2xl">Fox</p>
+					<p class="text-2xl"></p>
 					<p>Canal mas visto</p>
 				</div>
 			</div>
 			<div class="flex items-center justify-between p-3 font-medium text-white bg-gray-800 border-b-4 border-gray-600 rounded-md shadow-lg group">
 				<div class="flex items-center justify-center transition-all duration-300 transform bg-white rounded-full w-14 h-14 group-hover:rotate-12">
-					<svg width="30" height="30" fill="none" viewBox="0 0 20 20" stroke="currentColor" class="text-gray-800 transition-transform duration-500 ease-in-out transform stroke-current">
+					<svg id = "scheduleSVG" width="30" height="30" fill="none" viewBox="0 0 20 20" stroke="currentColor" class="invisible text-gray-800 transition-transform duration-500 ease-in-out transform stroke-current">
 						<path d="M10.25,2.375c-4.212,0-7.625,3.413-7.625,7.625s3.413,7.625,7.625,7.625s7.625-3.413,7.625-7.625S14.462,
 						2.375,10.25,2.375M10.651,16.811v-0.403c0-0.221-0.181-0.401-0.401-0.401s-0.401,0.181-0.401,
 						0.401v0.403c-3.443-0.201-6.208-2.966-6.409-6.409h0.404c0.22,0,0.401-0.181,0.401-0.401S4.063,9.599,3.843,
@@ -152,9 +155,10 @@
 						0l-2.127-2.129C9.986,10.302,9.849,10.192,9.849,10V5.184c0-0.221,0.181-0.401,0.401-0.401s0.401,0.181,0.401,
 						0.401v4.651l2.011,2.008C12.818,12.001,12.818,12.256,12.662,12.412"></path>
 					</svg>
+					<div name ="spinner" class="absolute w-12 h-12 border-8 border-gray-700 border-dashed rounded-full animate-spin border-t-transparent"></div>
 				</div>
 				<div class="text-right">
-					<p class="text-2xl">14:00</p>
+					<p class="text-2xl"></p>
 					<p>Horario de mayor uso</p>
 				</div>
 			</div>
@@ -178,23 +182,79 @@
 							<thead>
 								<tr>
 									<th class="px-4 py-3 text-xs font-semibold text-left text-gray-100 uppercase align-middle bg-gray-600 border border-l-0 border-r-0 border-gray-500 border-solid whitespace-nowrap">Servicio</th>
-									<th class="px-4 py-3 text-xs font-semibold text-left text-gray-100 uppercase align-middle bg-gray-600 border border-l-0 border-r-0 border-gray-500 border-solid whitespace-nowrap">Uso</th>
+									<th class="px-4 py-3 text-xs font-semibold text-left text-gray-100 uppercase align-middle bg-gray-600 border border-l-0 border-r-0 border-gray-500 border-solid whitespace-nowrap">Uso/tareas</th>
 									<th class="px-4 py-3 text-xs font-semibold text-left text-gray-100 uppercase align-middle bg-gray-600 border border-l-0 border-r-0 border-gray-500 border-solid whitespace-nowrap min-w-140-px"></th>
 								</tr>
 							</thead>
-							<tbody>
+							<tbody id = "infoTable" style="display: none">
 								<tr class="text-gray-100 ">
 									<th class="p-4 px-4 text-xs text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap">CPU</th>
-									<td class="p-4 px-4 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap">257</td>
+									<td id ="cpuUsagePercentage" class="p-4 px-4 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap">23%</td>
 									<td class="p-4 px-4 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap">
 										<div class="flex items-center">
-											<span class="mr-2">35%</span>
+											<span class="mr-2"></span>
 											<div class="relative w-full">
-												<div class="flex h-2 overflow-hidden text-xs bg-green-200 rounded">
-													<div style="width: 35%" class="flex flex-col justify-center text-center text-white bg-green-500 shadow-none whitespace-nowrap"></div>
+												<div id="cpuBarFondo" class="flex h-2 overflow-hidden text-xs rounded bg-yellow-100">
+													<div id ="cpuBar" style="width: 35%" class="flex flex-col justify-center text-center text-white  shadow-none whitespace-nowrap bg-yellow-500"></div>
 												</div>
 											</div>
 										</div>
+									</td>
+								</tr>
+								<tr class="text-gray-100 ">
+									<th class="p-4 px-4 text-xs text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap">SERVICIO PHP</th>
+									<td id="phpInfo" class="p-4 px-4 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"></td>
+									<td class="p-4 px-4 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap">
+										<div class="flex items-center">
+											<span class="mr-2"></span>
+											<div class="relative w-full">
+												<span class="px-2 py-1 font-semibold leading-tight text-green-100 bg-green-700 rounded-full"> Activo </span>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr class="text-gray-100 ">
+									<th class="p-4 px-4 text-xs text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap">SERVICIO HTTP</th>
+									<td id="httpInfo" class="p-4 px-4 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"></td>
+									<td class="p-4 px-4 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap">
+										<div class="flex items-center">
+											<span class="mr-2"></span>
+											<div class="relative w-full">
+												<span class="px-2 py-1 font-semibold leading-tight text-green-100 bg-green-700 rounded-full"> Activo </span>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr class="text-gray-100 ">
+									<th class="p-4 px-4 text-xs text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap">SERVICIO NTP</th>
+									<td id="ntpInfo" class="p-4 px-4 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"></td>
+									<td class="p-4 px-4 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap">
+										<div class="flex items-center">
+											<span class="mr-2"></span>
+											<div class="relative w-full">
+												<span class="px-2 py-1 font-semibold leading-tight text-green-100 bg-green-700 rounded-full"> Activo </span>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr class="text-gray-100 ">
+									<th class="p-4 px-4 text-xs text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap">SERVICIO DHCP</th>
+									<td id="dhcpInfo" class="p-4 px-4 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"></td>
+									<td class="p-4 px-4 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap">
+										<div class="flex items-center">
+											<span class="mr-2"></span>
+											<div class="relative w-full">
+												<span class="px-2 py-1 font-semibold leading-tight text-green-100 bg-green-700 rounded-full"> Activo </span>
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+							<tbody id= "loadingTable" style="display: contents">
+								<tr class="text-gray-100 ">
+									<th class="p-4 px-4 text-xs text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"></th>
+									<td class="p-4 px-4 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap">
+										<div class="border-8 border-gray-100 border-dashed rounded-full h-14 w-14 animate-spin border-t-transparent"></div>
 									</td>
 								</tr>
 							</tbody>
@@ -202,7 +262,6 @@
 					</div>
 				</div>
 			</div>
-				
 			<div class="relative flex flex-col w-full min-w-0 break-words bg-gray-800 rounded shadow-lg">
 				<div class="px-0 mb-0 border-0 rounded-t">
 					<div class="flex flex-wrap items-center px-4 py-2">
@@ -267,4 +326,5 @@
 	<!-- ./Content -->
 </div>
 
+<script src="{{asset('js/Welcome.js')}}"></script>
 @endsection  

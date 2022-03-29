@@ -10,6 +10,7 @@
         "production": "mix --production"
     },
     "devDependencies": {
+        "@types/jquery": "^3.5.14",
         "autoprefixer": "^10.4.2",
         "axios": "^0.25",
         "laravel-mix": "^6.0.6",
