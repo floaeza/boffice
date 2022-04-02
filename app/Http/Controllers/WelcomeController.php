@@ -22,16 +22,25 @@ class WelcomeController extends Controller
         $topChannel     = $statistic->getTopChannel();
         $topSchedule    = $statistic->getTopSchedule();
         $diskInfo       = $statistic->getServerInfo('getDiskInfo');
-        $diskInfo       = collect(json_decode($diskInfo, true));
+        $diskInfo        = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $diskInfo);
+        $diskInfo        = str_replace('\'', '"', $diskInfo);
+        $diskInfo       = json_decode($diskInfo, true);
         $cpuInfo        = $statistic->getServerInfo('getCpuInfo');
-        $cpuInfo        = collect(json_decode($cpuInfo, true));
+        $cpuInfo        = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $cpuInfo);
+        $cpuInfo        = str_replace('\'', '"', $cpuInfo);
+        $cpuInfo        = json_decode($cpuInfo, true);
         $httpdInfo      = $statistic->getServerInfo('getServiceInfo,systemctl status httpd.service');
+        $httpdInfo      = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $httpdInfo);
+        $httpdInfo      = str_replace('\'', '"', $httpdInfo);
         $httpdInfo      = json_decode($httpdInfo, true);
         $mariaInfo      = $statistic->getServerInfo('getServiceInfo,systemctl status mariadb.service');
+        $mariaInfo      = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $mariaInfo);
+        $mariaInfo      = str_replace('\'', '"', $mariaInfo);
         $mariaInfo      = json_decode($mariaInfo, true);
         $phpInfo        = $statistic->getServerInfo('getServiceInfo,systemctl status php-fpm.service');
+        $phpInfo        = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $phpInfo);
+        $phpInfo        = str_replace('\'', '"', $phpInfo);
         $phpInfo        = json_decode($phpInfo, true);
-        $data = array();
 
         foreach ($phpInfo[1] as $key) {
             if ($key[0] == 'Activo') {

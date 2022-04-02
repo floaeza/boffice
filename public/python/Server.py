@@ -36,8 +36,24 @@ def getCpuInfo():
     return aux
 
 def getServiceInfo(command):
-    serviceWithoutFilter = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE).stdout.read()
-    serviceWithoutFilter = serviceWithoutFilter.decode('utf-8')
+    hostname = "172.16.0.84"
+    username = "root"
+    password = "root2root"
+    # initialize the SSH client
+    client = paramiko.SSHClient()
+    # add to known hosts
+    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    try:
+        client.connect(hostname=hostname, username=username, password=password)
+    except:
+        print("[!] Cannot connect to the SSH Server")
+        exit()
+    stdin, stdout, stderr = client.exec_command(command)
+    err = stderr.read().decode()
+    if err:
+        print(err)
+    serviceWithoutFilter = stdout.read().decode()
+    serviceWithoutFilter = serviceWithoutFilter.replace('"','')
     serviceWithoutFilter = serviceWithoutFilter.strip()
     serviceWithoutFilter = serviceWithoutFilter.split('\n')
 
@@ -70,6 +86,9 @@ def getServiceInfo(command):
     aux = []
     aux.append(head)
     aux.append(info)
+    # aux = "["+str(head)+str(info)+"]"
+    # aux = ssh_stdout
+    # # print(aux)
     return aux
 
 def getNetworkStatus():
