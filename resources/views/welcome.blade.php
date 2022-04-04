@@ -195,7 +195,7 @@
 											<span class="mr-2"></span>
 											<div class="relative w-full">
 												<div id="cpuBarFondo" class="flex h-2 overflow-hidden text-xs rounded">
-													<div id ="cpuBar" style="width: 35%" class="flex flex-col justify-center text-center text-white  shadow-none whitespace-nowrap"></div>
+													<div id ="cpuBar" style="width: 35%" class="flex flex-col justify-center text-center text-white shadow-none whitespace-nowrap"></div>
 												</div>
 											</div>
 										</div>
