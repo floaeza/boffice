@@ -208,7 +208,7 @@
 										<div class="flex items-center">
 											<span class="mr-2"></span>
 											<div class="relative w-full">
-												<span class="px-2 py-1 font-semibold leading-tight text-green-100 bg-green-700 rounded-full"> Activo </span>
+												<span name="service" class="px-2 py-1 font-semibold leading-tight rounded-full"> Activo </span>
 											</div>
 										</div>
 									</td>
@@ -220,7 +220,7 @@
 										<div class="flex items-center">
 											<span class="mr-2"></span>
 											<div class="relative w-full">
-												<span class="px-2 py-1 font-semibold leading-tight text-green-100 bg-green-700 rounded-full"> Activo </span>
+												<span name="service" class="px-2 py-1 font-semibold leading-tight rounded-full"> Activo </span>
 											</div>
 										</div>
 									</td>
@@ -232,7 +232,7 @@
 										<div class="flex items-center">
 											<span class="mr-2"></span>
 											<div class="relative w-full">
-												<span class="px-2 py-1 font-semibold leading-tight text-green-100 bg-green-700 rounded-full"> Activo </span>
+												<span name="service" class="px-2 py-1 font-semibold leading-tight rounded-full"> Activo </span>
 											</div>
 										</div>
 									</td>
@@ -244,7 +244,7 @@
 										<div class="flex items-center">
 											<span class="mr-2"></span>
 											<div class="relative w-full">
-												<span class="px-2 py-1 font-semibold leading-tight text-green-100 bg-green-700 rounded-full"> Activo </span>
+												<span name="service" class="px-2 py-1 font-semibold leading-tight rounded-full"> Activo </span>
 											</div>
 										</div>
 									</td>

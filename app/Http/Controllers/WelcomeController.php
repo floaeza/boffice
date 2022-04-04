@@ -41,12 +41,34 @@ class WelcomeController extends Controller
         $phpInfo        = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $phpInfo);
         $phpInfo        = str_replace('\'', '"', $phpInfo);
         $phpInfo        = json_decode($phpInfo, true);
+        $ntpInfo        = $statistic->getServerInfo('getServiceInfo,systemctl status chronyd.service');
+        $ntpInfo        = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $ntpInfo);
+        $ntpInfo        = str_replace('\'', '"', $ntpInfo);
+        $ntpInfo        = json_decode($ntpInfo, true);
+        $dhcpInfo        = $statistic->getServerInfo('getServiceInfo,systemctl status dhcpd.service');
+        $dhcpInfo        = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $dhcpInfo);
+        $dhcpInfo        = str_replace('\'', '"', $dhcpInfo);
+        $dhcpInfo        = json_decode($dhcpInfo, true);
 
         foreach ($phpInfo[1] as $key) {
             if ($key[0] == 'Activo') {
                 $data['PHP']= 'Activo';
             }elseif ($key[0] == 'Dead') {
                 $data['PHP'] = 'Inactivo';
+            }
+        }
+        foreach ($ntpInfo[1] as $key) {
+            if ($key[0] == 'Activo') {
+                $data['NTP']= 'Activo';
+            }elseif ($key[0] == 'Dead') {
+                $data['NTP'] = 'Inactivo';
+            }
+        }
+        foreach ($dhcpInfo[1] as $key) {
+            if ($key[0] == 'Activo') {
+                $data['DHCP']= 'Activo';
+            }elseif ($key[0] == 'Dead') {
+                $data['DHCP'] = 'Inactivo';
             }
         }
         foreach ($mariaInfo[1] as $key) {
@@ -64,18 +86,22 @@ class WelcomeController extends Controller
             }
         }
 
-        $timeRunningPHP             = explode(';', $phpInfo[1][0][1]);
-        $timeRunningHTTP            = explode(';', $httpdInfo[1][0][1]);
-        $timeRunningDB              = explode(';', $mariaInfo[1][0][1]);
+        $timeRunningPHP               = explode(';', $phpInfo[1][0][1]);
+        $timeRunningHTTP              = explode(';', $httpdInfo[1][0][1]);
+        $timeRunningDB                = explode(';', $mariaInfo[1][0][1]);
+        $timeRunningNTP               = explode(';', $ntpInfo[1][0][1]);
+        $timeRunningDHCP              = explode(';', $dhcpInfo[1][0][1]);
 
         preg_match_all('!\d+!', $phpInfo[1][2][0], $phpTasks);
         preg_match_all('!\d+!', $httpdInfo[1][2][0], $httpTasks);
         preg_match_all('!\d+!', $mariaInfo[1][2][0], $dbTasks);
+        preg_match_all('!\d+!', $ntpInfo[1][2][0], $ntpTasks);
+        preg_match_all('!\d+!', $dhcpInfo[1][2][0], $dhcpTasks);
 
         $data['PHP']                = ['status'      =>$data['PHP'], 
                                        'timeRunning' =>$timeRunningPHP[1],
-                                       'tasks'      =>$phpTasks[0][0],
-                                       'maxTasks'   =>$phpTasks[0][1]];
+                                       'tasks'       =>$phpTasks[0][0],
+                                       'maxTasks'    =>$phpTasks[0][1]];
         $data['HTTP']               = ['status'      =>$data['HTTP'], 
                                        'timeRunning' =>$timeRunningHTTP[1],
                                        'tasks'       =>$httpTasks[0][0],
@@ -84,6 +110,15 @@ class WelcomeController extends Controller
                                        'timeRunning' =>$timeRunningDB[1],
                                        'tasks'       =>$dbTasks[0][0],
                                        'maxTasks'    =>$dbTasks[0][1]];
+        $data['NTP']                 = ['status'      =>$data['NTP'], 
+                                        'timeRunning' =>$timeRunningNTP[1],
+                                        'tasks'       =>$ntpTasks[0][0],
+                                        'maxTasks'    =>$ntpTasks[0][1]];
+        $data['DHCP']                 = ['status'      =>$data['DHCP'], 
+                                        'timeRunning' =>$timeRunningDHCP[1],
+                                        'tasks'       =>$dhcpTasks[0][0],
+                                        'maxTasks'    =>$dhcpTasks[0][1]];
+
         $data['CPU']                = $cpuInfo[1][3];
         $data['DISK']               = $diskInfo[1][5][4];
         $data['DEVICES']            = $countDevices;

@@ -83,8 +83,54 @@ function setInformation(infoArray){
                 case 'DB':
                     element.innerHTML = infoArray['HTTP']['tasks']+'/'+infoArray['HTTP']['maxTasks'];
                     break;
+                case 'ntpInfo':
+                    element.innerHTML = infoArray['NTP']['tasks']+'/'+infoArray['NTP']['maxTasks'];
+                    break;
+                case 'dhcpInfo':
+                    element.innerHTML = infoArray['DHCP']['tasks']+'/'+infoArray['DHCP']['maxTasks'];
+                    break;
             }
         });    
+    
+        let servicesInfo = Array.from(document.getElementsByName('service'));
+        if (infoArray['PHP']['status'] == 'Inactivo'){
+            servicesInfo[0].style.backgroundColor = '#B91601';
+            servicesInfo[0].innerHTML             = 'Inactivo';
+            servicesInfo[0].style.color           = '#F3D8D4';
+        }else {
+            servicesInfo[0].style.backgroundColor = '#069B45';
+            servicesInfo[0].innerHTML             = 'Activo';
+            servicesInfo[0].style.color           = '#E1F3DF';
+        }
+        if (infoArray['HTTP']['status'] == 'Inactivo'){
+            servicesInfo[1].style.backgroundColor = '#B91601';
+            servicesInfo[1].innerHTML             = 'Inactivo';
+            servicesInfo[1].style.color           = '#F3D8D4';
+        }else {
+            servicesInfo[1].style.backgroundColor = '#069B45';
+            servicesInfo[1].innerHTML             = 'Activo';
+            servicesInfo[1].style.color           = '#E1F3DF';
+        }
+        if (infoArray['NTP']['status'] == 'Inactivo'){
+            servicesInfo[2].style.backgroundColor = '#B91601';
+            servicesInfo[2].innerHTML             = 'Inactivo';
+            servicesInfo[2].style.color           = '#F3D8D4';
+        }else {
+            servicesInfo[2].style.backgroundColor = '#069B45';
+            servicesInfo[2].innerHTML             = 'Activo';
+            servicesInfo[2].style.color           = '#E1F3DF';
+        }
+        if (infoArray['DHCP']['status'] == 'Inactivo'){
+            servicesInfo[3].style.backgroundColor = '#B91601';
+            servicesInfo[3].innerHTML             = 'Inactivo';
+            servicesInfo[3].style.color           = '#F3D8D4';
+        }else {
+            servicesInfo[3].style.backgroundColor = '#069B45';
+            servicesInfo[3].innerHTML             = 'Activo';
+            servicesInfo[3].style.color           = '#E1F3DF';
+        }
+    
+
     if(loadingTable) loadingTable.style.display = 'none';
     if(infoTable) infoTable.style.display = 'contents';
 }
