@@ -22,8 +22,8 @@ class WelcomeController extends Controller
         $topChannel     = $statistic->getTopChannel();
         $topSchedule    = $statistic->getTopSchedule();
         $diskInfo       = $statistic->getServerInfo('getDiskInfo');
-        $diskInfo        = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $diskInfo);
-        $diskInfo        = str_replace('\'', '"', $diskInfo);
+        $diskInfo       = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $diskInfo);
+        $diskInfo       = str_replace('\'', '"', $diskInfo);
         $diskInfo       = json_decode($diskInfo, true);
         $cpuInfo        = $statistic->getServerInfo('getCpuInfo');
         $cpuInfo        = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $cpuInfo);

@@ -65,8 +65,8 @@ function setInformation(infoArray){
                             cpuBarFondo.classList.add('bg-green-100');
                             cpuBar.classList.add('bg-green-500');
                         }else if(aux > 50 && aux < 70){
-                            cpuBarFondo.classList.add('bg-yellow-100');
-                            cpuBar.classList.add('bg-yellow-500');
+                            cpuBarFondo.classList.add('bg-green-100');
+                            cpuBar.classList.add('bg-green-500');
                         }else if (aux > 70) {
                             cpuBarFondo.classList.add('bg-red-100');
                             cpuBar.classList.add('bg-red-500');
