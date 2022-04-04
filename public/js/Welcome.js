@@ -62,14 +62,14 @@ function setInformation(infoArray){
                     if(cpuBar && cpuBarFondo) {
                         cpuBar.style.width = aux.toString()+'%';
                         if (aux < 50) {
-                            cpuBarFondo.classList.add('bg-green-100');
-                            cpuBar.classList.add('bg-green-500');
+                            cpuBarFondo.style.backgroundColor = '#BCEDD1';
+                            cpuBar.style.backgroundColor = '#069B45';
                         }else if(aux > 50 && aux < 70){
-                            cpuBarFondo.classList.add('bg-green-100');
-                            cpuBar.classList.add('bg-green-500');
+                            cpuBarFondo.style.backgroundColor = '#F9A96A';
+                            cpuBar.style.backgroundColor = '#FF7000';
                         }else if (aux > 70) {
-                            cpuBarFondo.classList.add('bg-red-100');
-                            cpuBar.classList.add('bg-red-500');
+                            cpuBarFondo.style.backgroundColor = '#FD8575';
+                            cpuBar.style.backgroundColor = '#FF1E00';
                         }
                     }
                     element.innerHTML = aux.toString()+'%';
